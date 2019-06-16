@@ -1,26 +1,62 @@
 {
   "name": "leslie-bot",
-  "version": "1.0.0",
-  "description":
-    "A bot that tweets inspirational quotes by Leslie Knope from Parks and Recreation show daily.",
+  "version": "1.1.0",
+  "description": "A bot that tweets inspirational quotes by Leslie Knope from Parks and Recreation show daily.",
   "homepage": "https://twitter.com/knopesquotes",
+  "repository": "github:pablen/leslie-bot",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy":
-      "now -e CONSUMER_KEY=@consumerkey -e CONSUMER_SECRET=@consumersecret -e ACCESS_TOKEN=@accesstoken -e ACCESS_TOKEN_SECRET=@accesstokensecret -e CALLBACK_URL=@callbackurl"
+    "deploy": "now -e CONSUMER_KEY=@consumerkey -e CONSUMER_SECRET=@consumersecret -e ACCESS_TOKEN=@accesstoken -e ACCESS_TOKEN_SECRET=@accesstokensecret -e CALLBACK_URL=@callbackurl"
   },
   "author": "Pablo Enrici <pabloenrici@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "node-schedule": "^1.2.5",
+    "node-schedule": "^1.3.2",
     "twitter-node-client": "0.0.6"
   },
   "now": {
     "alias": "leslie-bot",
-    "files": ["src", "index.js"]
+    "files": [
+      "src",
+      "index.js"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-require-path-exists": "^1.1.9",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.js": [
+        "eslint --cache"
+      ],
+      "**/*.{js,json,css,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "package-lock.json",
+      "package.json"
+    ]
   }
 }
