@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 
 module.exports = () => ({
   consumerKey: process.env.CONSUMER_KEY,
@@ -6,4 +6,4 @@ module.exports = () => ({
   accessToken: process.env.ACCESS_TOKEN,
   accessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
   callBackUrl: process.env.CALLBACK_URL
-});
+})

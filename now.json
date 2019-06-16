@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "alias": "leslie-bot",
+  "files": ["src", "index.js"]
+}

@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "plugins": ["promise", "require-path-exists"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:promise/recommended",
+    "plugin:require-path-exists/recommended",
+    "standard",
+    "prettier"
+  ],
+  "rules": {
+    "no-console": "off"
+  }
+}

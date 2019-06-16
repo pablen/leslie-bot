@@ -45,5 +45,20 @@ module.exports = () => [
   "I'm ready.",
   'There’s nothing we can’t do if we work hard, never sleep, and shirk all other responsibilities in our lives.',
   "No matter what I do, literally nothing bad can happen to me. I'm like a white male US senator.",
-  'I would like to be president some day, so, no, I have not smoked marijuana.'
-];
+  'I would like to be president some day, so, no, I have not smoked marijuana.',
+
+  // Added 2019-06-16
+  'All I need to do is focus and stay calm',
+  'The things that you have done for me to help me, support me, surprise me, to make me happy, go above and beyond what any person deserves. You are all I need. I love you and I like you.',
+  'How does taking risks make me feel? Amazing. Tingling sensations throughout my whole body. I feel flushed. My muscles are relaxed yet awake.',
+  'I could retire! But I wouldn’t – I’m going to work until I’m 100. Then I’ll cut back to four days a week.',
+  'Who cares if they have more money? I have the most valuable currency in America; a blind, stubborn belief that what I am doing is right!',
+  'I am a goddess, a glorious female warrior. Queen of all that I survey. Enemies of fairness and equality, hear my womanly roar. Yeah!',
+  'If you want to bake a pie. That’s great. If you want to have a career. That’s great too!',
+  'Winning is every girl’s dream. But it’s my destiny.',
+  'Ann, you rainbox-infused space unicorn.',
+  'Ann, you’re a genius! Your brain is almost as perfect as your face.',
+  'Oh, Ann Perkins, you perfect sunflower.',
+  'I agree with you on all things. Throughout history, until the end of time forever.',
+  'Let’s break up a map. Not the old out-of-date one that shows where we’ve been, but a crisp new one that shows where we might go. Let’s embark on a new journey together, and see where it takes us.'
+]
