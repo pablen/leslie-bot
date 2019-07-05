@@ -37,6 +37,11 @@ T.get('statuses/user_timeline', { count: 1 }, function getLastQuote(err, data) {
   const nextTweetText = quotes[nextTweetIndex]
   console.log(`Next quote:\n${nextTweetText} (${nextTweetIndex})\n\n`)
 
+  if (process.env.DRY_RUN === 'true') {
+    console.log(`Exiting without tweeting:\n${nextTweetText}\n\n`)
+    return
+  }
+
   T.post('statuses/update', { status: nextTweetText }, function onTweeted(
     err,
     reply
