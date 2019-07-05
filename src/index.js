@@ -25,33 +25,37 @@ T.get(
   }
 )
 
-T.get('statuses/user_timeline', { count: 1 }, function getLastQuote(err, data) {
-  if (err) throw err
-  const lastTweetText = data[0].text || ''
-  const lastTweetIndex =
-    quotes.indexOf(lastTweetText) > -1 ? quotes.indexOf(lastTweetText) : 0
-  console.log(`Last quote:\n${lastTweetText} (${lastTweetIndex})\n\n`)
+T.get(
+  'statuses/user_timeline',
+  { count: 1, tweet_mode: 'extended' },
+  function getLastQuote(err, data) {
+    if (err) throw err
+    const lastTweetText = data[0].full_text || ''
+    const lastTweetIndex =
+      quotes.indexOf(lastTweetText) > -1 ? quotes.indexOf(lastTweetText) : 0
+    console.log(`Last quote:\n${lastTweetText} (${lastTweetIndex})\n\n`)
 
-  const nextTweetIndex =
-    lastTweetIndex === quotes.length - 1 ? 0 : lastTweetIndex + 1
-  const nextTweetText = quotes[nextTweetIndex]
-  console.log(`Next quote:\n${nextTweetText} (${nextTweetIndex})\n\n`)
+    const nextTweetIndex =
+      lastTweetIndex === quotes.length - 1 ? 0 : lastTweetIndex + 1
+    const nextTweetText = quotes[nextTweetIndex]
+    console.log(`Next quote:\n${nextTweetText} (${nextTweetIndex})\n\n`)
 
-  if (process.env.DRY_RUN === 'true') {
-    console.log(`Exiting without tweeting:\n${nextTweetText}\n\n`)
-    return
-  }
-
-  T.post('statuses/update', { status: nextTweetText }, function onTweeted(
-    err,
-    reply
-  ) {
-    if (err !== undefined) {
-      console.log(
-        `There was an error with Leslie quotes bot: ${JSON.stringify(err)}.`
-      )
-    } else {
-      console.log(`Tweeted:\n${reply.text}\n\n`)
+    if (process.env.DRY_RUN === 'true') {
+      console.log(`Exiting without tweeting:\n${nextTweetText}\n\n`)
+      return
     }
-  })
-})
+
+    T.post('statuses/update', { status: nextTweetText }, function onTweeted(
+      err,
+      reply
+    ) {
+      if (err !== undefined) {
+        console.log(
+          `There was an error with Leslie quotes bot: ${JSON.stringify(err)}.`
+        )
+      } else {
+        console.log(`Tweeted:\n${reply.text}\n\n`)
+      }
+    })
+  }
+)
